@@ -12,6 +12,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="header">
+      <h1><%= link_to 'BONS DRINKS', cocktails_path %></h1>    
+    </div>
+    <div class="footer">
+      <p>for your safety do not drink and code.<p>
+    </div>
+    <div class="container">
+        <%= yield %>
+    </div>
   </body>
 </html>
