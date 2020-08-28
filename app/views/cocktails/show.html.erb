@@ -1,25 +1,30 @@
+<div class="card-banner" 
+    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo.key %>')">
   <h1><%= @cocktail.name %></h1>
-  <%= link_to "Back to all cocktails", root_path %>
+</div>
+  
+<h3>Recipe</h3>
 
-  <h3>Recipe</h3>
-  <table class="table table-bordered">
-    <tbody>
-      <thead>
-        <th>Ingredient</th>
-        <th>Description</th>
-        <th>Action</th>
-      </thead>
-      <% @cocktail.doses.each do |dose| %>
-        <tr>
-          <td><%= dose.ingredient.name %></td>
-          <td><%= dose.description %></td>
-          <td>
-            <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="fa fa-trash destroy_dose"></i>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<table class="table table-bordered">
+  <tbody>
+    <thead>
+      <th>Ingredient</th>
+      <th>Description</th>
+      <th>Action</th>
+    </thead>
+    <% @cocktail.doses.each do |dose| %>
+      <tr>
+        <td><%= dose.ingredient.name %></td>
+        <td><%= dose.description %></td>
+        <td>
+          <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fa fa-trash destroy_dose"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+  <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
 

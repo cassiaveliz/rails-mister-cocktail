@@ -1,0 +1,36 @@
+.banner {
+    font-size: 30px;
+    position: relative;
+    padding: 5px 15px;
+	background: $gray;
+}
+
+.banner:before, .banner:after {
+	content: '';
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+		#0000ff, #00ff00,#ffff00, #ff0000);
+	background-size: 150%;
+	width: calc(100% + 2px);
+	height: calc(100% + 2px);
+	z-index: -1;
+	animation: steam 5s linear infinite;
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 100% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.banner:after {
+	filter: blur(50px);
+}

@@ -12,14 +12,20 @@
   </head>
 
   <body>
+
     <div class="header">
-      <h1><%= link_to 'BONS DRINKS', cocktails_path %></h1>    
+      <div class="banner"><%= link_to 'BONS DRINKS', cocktails_path %></div> 
+      <%= cl_image_tag("drinks_qo8kz7", height: 100, crop: :fill) %>
     </div>
-    <div class="footer">
-      <p>for your safety do not drink and code.<p>
-    </div>
+
     <div class="container">
         <%= yield %>
     </div>
+
+    <div class="footer">
+      <span>for your safety do not drink and code.</span>
+      <%= link_to "Back to all cocktails", root_path %>
+    </div>
+
   </body>
 </html>
