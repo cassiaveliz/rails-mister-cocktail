@@ -1,14 +1,17 @@
-<div>
-  <div>
-    <%= link_to "Add a cocktail", new_cocktail_path %>
-  </div>
-  
-  <div class="cards">
-    <% @cocktails.each do |cocktail| %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key %>')">
-        <%= link_to cocktail.name, cocktail_path(cocktail) %>
-      </div>
-    <% end %>
-  </div>
+<div class="navbar">
+  <%= link_to "Add a cocktail", new_cocktail_path %>
 
+  <%= form_tag(cocktails_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Drink" %>
+    <%= submit_tag "Search", :name => nil %>
+  <% end %>
+
+</div>
+
+<div class="cards">
+  <% @cocktails.each do |cocktail| %>
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key %>')">
+      <%= link_to cocktail.name, cocktail_path(cocktail) %>
+    </div>
+  <% end %>
 </div>
